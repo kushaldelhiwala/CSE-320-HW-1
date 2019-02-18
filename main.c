@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
 			budget = *(argv + i);
 		}
 
-		else if (stringcomp (*arg_i, "-v") == 0){
+		else if (stringcomp (arg_i, "-v") == 0){
 			if (i_flag || t_flag || n_flag == 1){
 				printf("ERROR");
 			}
@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
 			v_flag = 1;
 		}
 
-		else if (stringcomp (*arg_i, "-i") == 0){
+		else if (stringcomp (arg_i, "-i") == 0){
 			if(v_flag == 1){
 				printf("ERROR");
 			}
@@ -68,7 +68,7 @@ int main(int argc, char** argv) {
 					
 		}
 
-		else if (stringcomp (*arg_i, "-t") == 0){
+		else if (stringcomp (arg_i, "-t") == 0){
 			if(v_flag == 1){
 				printf("ERROR");
 			}
@@ -80,7 +80,7 @@ int main(int argc, char** argv) {
 					
 		}
 
-		else if (stringcomp (*arg_i, "-n") == 0){
+		else if (stringcomp (arg_i, "-n") == 0){
 			if(v_flag == 1){
 				printf("ERROR");
 			}
@@ -93,7 +93,7 @@ int main(int argc, char** argv) {
 					
 		}
 
-		else if (stringcomp (*arg_i, "-o") == 0){
+		else if (stringcomp (arg_i, "-o") == 0){
 			o_flag = 1; 
 			i++;
 			store_file_name = *(argv + i);
@@ -110,11 +110,11 @@ int main(int argc, char** argv) {
 			}
 		}
 	}
-		//printf("%s\n", budget);
-		//printf("%s\n", char_filename);
-		//printf("%d\n", i);
-		//printf("%d\n", file_name_token);
-		//printf("%d\n", b_flag);
+		printf("%s\n", budget);
+		printf("%s\n", char_filename);
+		printf("%d\n", i);
+		printf("%d\n", file_name_token);
+		printf("%d\n", b_flag);
 	}
 	
 	return 0;
