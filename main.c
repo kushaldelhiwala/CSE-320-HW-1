@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 int stringcomp(char *string1, char *string2) {
     while (*string1 && *string2 && *string1 == *string2){
@@ -29,11 +30,14 @@ int main(int argc, char** argv) {
 
 	int o_flag = 0;
 	char *store_file_name;
+	char *user_input;	//Ask Sergey if correct way
 
 	int file_name_token = 0;
 	char *char_filename;
 	
 	int i;
+
+	FILE *cmdfile;
 	
 	if (argc < 3){
            printf("NO QUERY PROVIDED\n");
@@ -120,6 +124,24 @@ int main(int argc, char** argv) {
 			o_flag = 1; 
 			i++;
 			store_file_name = *(argv + i);
+			
+			//Ask Sergey if proper 
+
+			if (access(store_file_name, F_OK) != -1){
+				// File exists
+				printf("Should the file be overwritten?\n");
+				scanf("%s", user_input);
+				if (stringcomp(user_input, "yes") == 0 || stringcomp(user_input, "y") == 0){}
+
+				else if (stringcomp(user_input, "no") == 0|| stringcomp(user_input, "n") == 0){
+					printf("FILE EXISTS\n");
+					exit(0);
+				}
+
+			}
+			else{
+				cmdfile = fopen(store_file_name, "w");
+			}
 
 		}
 				
@@ -133,11 +155,11 @@ int main(int argc, char** argv) {
 			}
 		}
 	}
-		printf("%s\n", budget);
-		printf("%s\n", char_filename);
-		printf("%d\n", i);
-		printf("%d\n", file_name_token);
-		printf("%d\n", b_flag);
+		//printf("%s\n", budget);
+		//printf("%s\n", char_filename);
+		//printf("%d\n", i);
+		//printf("%d\n", file_name_token);
+		//printf("%d\n", b_flag);
 	}
 	
 	return 0;
