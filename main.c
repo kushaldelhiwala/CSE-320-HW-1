@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
 
 int stringcomp(char *string1, char *string2) {
     while (*string1 && *string2 && *string1 == *string2){
@@ -11,11 +13,13 @@ int stringcomp(char *string1, char *string2) {
 int main(int argc, char** argv) {
 	int b_flag = 0;
 	char *budget;
+	int int_budget;
 
 	int v_flag = 0;
 
 	int i_flag = 0;
 	char *id;
+	int int_id;
 
 	int t_flag = 0;
 	char *type;
@@ -46,6 +50,17 @@ int main(int argc, char** argv) {
 			b_flag = 1;
 			i++; 
 			budget = *(argv + i);
+			printf("%s\n", budget);
+
+			int_budget = atoi(budget);
+			printf("%d\n", int_budget);
+
+			if (int_budget == 0)
+				printf("Error, ATOI failed\n");
+
+			if (int_budget < 0){
+				printf("Error, budget cannot be less than 0\n");
+			}
 		}
 
 		else if (stringcomp (arg_i, "-v") == 0){
@@ -64,6 +79,14 @@ int main(int argc, char** argv) {
 				i_flag = 1;
 				i++;
 				id = *(argv + i);
+				char *id_end;
+				int_id = strtol(id, &id_end, 10);
+
+				if(!*id_end){}
+
+				else{
+					printf("ID ERROR\n");
+				}
 			}
 					
 		}
