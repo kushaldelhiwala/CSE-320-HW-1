@@ -447,7 +447,7 @@ int main(int argc, char** argv) {
                 else if (*singleLine == 'U'){
 
                     if (updateDatabase(head, art_id, art_type, art_name, artist_name, price, int_budget) == -1){
-                        printf("DATABASE COULD NOT BE DELETED OR UPDATED\n");
+                        printf("RECORD CANNOT NOT BE DELETED OR UPDATED\n");
                         free(singleLine);
                         free(art_type);
                         free(art_name);
@@ -587,7 +587,7 @@ art_pieces* deleteFromDatabase(art_pieces* head, int art_id, int price, int int_
         }
         cursor = pointer;
     }
-    printf("RECORD COULD NOT BE UPDATED OR DELETED");
+    printf("RECORD CANNOT BE DELETED NOR UPDATED");
     exit(0);
 }
 
